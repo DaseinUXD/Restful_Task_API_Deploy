@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="../javascripts/bootstrap.js"></script>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <!--title-->
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h1 class="text-primary"><%= intro %>: <%= mongoose.name %></h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <form>
+                    <fieldset>
+                        <legend>Vital Statistics</legend>
+                        <!--age-->
+                        <div class="form-group row h5">
+                            <label for="age" class="col-2 col-form-label">Age:</label>
+                            <div class="col-4">
+                                <input value="<%= mongoose.age %>" disabled readonly id="age" class="form-control h5 " type="text" name="age">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <!--weight-->
+                        <div class="form-group row h5">
+                            <label for="weight" class="col-2 col-form-label">Weight:</label>
+                            <div class="col-4">
+                                <input value="<%= mongoose.weight %>" disabled readonly id="weight" class="form-control h5 " type="text" name="weight">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <!--submit button-->
+                        <div class="form-group">
+                            <button type="submit" formaction="/" class="btn btn-success">Return</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row"></div>
+    </div>
+</body>
+</html>

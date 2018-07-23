@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <!--title-->
+    <title><%=title%></title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <h1 class="text-primary"><%=title%></h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <% if(messages.editing_mongoose) { %>
+
+                <% for (var msg of messages.editing_mongoose) { %>
+
+                <h3 class="text-danger"><%= msg %></h3>
+                <% } %>
+                <% } %>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <form action="/tasks/<%=task.id%>" method="post">
+                    <fieldset>
+                        <legend></legend>
+                        <!--name-->
+                        <div class="form-group row h5">
+                            <label for="name" class="col-2 col-form-label tex">Name:</label>
+                            <div class="col-4">
+                                <input value="<%=task.title%>" id="name" class="form-control" type="text" name="name">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <!--age-->
+                        <div class="form-group row h5">
+                            <label for="age" class="col-2 col-form-label">Age:</label>
+                            <div class="col-4">
+                                <input value="<%=task.description%>" id="age" class="form-control" type="text" name="age">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <!--weight-->
+                        <div class="form-group row h5">
+                            <label for="weight" class="col-2 col-form-label">Weight:</label>
+                            <div class="col-4">
+                                <input value="<%=task.completed%>" id="weight" class="form-control" type="text" name="weight">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <!--submit button-->
+                        <div class="form-group">
+                            <input type="submit" value="Submit Edits" class="btn btn-warning">
+                            <button class="btn btn-secondary" formaction="/" formmethod="get">Cancel</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row"></div>
+    </div>
+</body>
+</html>

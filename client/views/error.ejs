@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+
+    <!--stylesheets-->
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css"/>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <!--title-->
+    <title><%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <!--Title Row-->
+        <div class="row">
+            <div class="col-2"></div>
+            <!--title-->
+            <div class="col-8">
+                <h1 class="text-primary"><%= title %></h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <!--Adding a Task_model Errors Row-->
+        <div class="row">
+            <div class="col-4"><h4>Errors adding a mongoose</h4></div>
+            <div class="col-8">
+                <% if(messages.adding_task) { %>
+                <% for (var msg of messages.adding_task) { %>
+                <h5 class="text-danger"><%= msg %></h5>
+                <% } %>
+                <% } %>
+                <a href='/tasks/new' class="btn btn-outline-success">Retry</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"></div>
+
+</body>
+</html>

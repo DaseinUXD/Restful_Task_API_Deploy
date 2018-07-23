@@ -28,30 +28,32 @@ export class AppComponent implements OnInit {
       this.tasks = data['tasks'];
     })
   }
-  getPokemonFromService(){
+
+  getPokemonFromService() {
     let observable = this._httpService.getPokemon();
     observable.subscribe(pokemon => {
-      console.log('got our pokemon named:', pokemon.name);
-      for (let i in pokemon.abilities){
-        console.log('ability',i,'is', pokemon.abilities[i].ability.name,  pokemon.abilities[i].ability.name);
+      console.log('got our pokemon named:', pokemon['name']);
+      for (let i in pokemon) {
+        console.log(pokemon['name'] + '\'s:', i+':', pokemon[i]);
       }
-      this.pokemon = pokemon['pokemon'];
-    } )
-  }
-  getPokemonWithAbility(){
-    let observable = this._httpService.getWithAbility();
-    observable.subscribe(pokemonAbility => {
-      var total = (pokemonAbility.pokemon).length;
-      var abilityName = pokemonAbility.name;
-      console.log(total, 'pokemon have the ability:', abilityName);
-
-      for (let i in pokemonAbility.pokemon){
-
-        console.log(pokemonAbility.pokemon[i].pokemon.name)
-      }
-
+      this.pokemon = pokemon['name'];
     })
   }
 
-}
+  getPokemonWithAbility() {
+    let observable = this._httpService.getWithAbility();
+    observable.subscribe(pokemonAbility => {
+      var total = (pokemonAbility['pokemon']).length;
+      var abilityName = pokemonAbility['name'];
+      console.log(total, 'pokemon have the ability:', abilityName);
+
+      for (let i in pokemonAbility['pokemon']) {
+
+        console.log(pokemonAbility['pokemon'][i].pokemon.name)
+        // }
+
+      }
+    })
+
+  }
 

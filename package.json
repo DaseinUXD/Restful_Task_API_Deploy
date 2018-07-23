@@ -1,0 +1,23 @@
+{
+  "name": "Restful-Tas-API-Angular",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "mongod": "d:/mongodb/server/4.0/bin/mongod",
+    "mongo": "d:/mongodb/server/4.0/bin/mongo",
+    "monitor": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "fs": "0.0.1-security",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.4",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.2"
+  }
+}
